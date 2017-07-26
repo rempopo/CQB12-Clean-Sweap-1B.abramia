@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=33;
+		nextID=51;
 	};
 	class Camera
 	{
-		pos[]={8987.0391,75.76754,6201.4683};
-		dir[]={-0.73359042,-0.66205615,-0.15353024};
-		up[]={-0.64802891,0.74944091,-0.13562413};
-		aside[]={-0.20485261,4.4549597e-007,0.9788174};
+		pos[]={9083.2529,744.60925,5621.2241};
+		dir[]={-0.11922012,-0.68474644,0.71899539};
+		up[]={-0.11201476,0.72876811,0.67553467};
+		aside[]={0.98655444,4.6601053e-007,0.1635855};
 	};
 };
 binarizationWanted=0;
@@ -251,6 +251,10 @@ class ScenarioData
 		minPlayers=1;
 		maxPlayers=12;
 	};
+	wreckRemovalMaxTime=3600;
+	corpseManagerMode=1;
+	corpseRemovalMaxTime=30.000002;
+	minPlayerDistance=500;
 };
 class CustomAttributes
 {
@@ -274,22 +278,8 @@ class CustomAttributes
 					};
 					class value
 					{
-						items=2;
+						items=1;
 						class Item0
-						{
-							class data
-							{
-								class type
-								{
-									type[]=
-									{
-										"STRING"
-									};
-								};
-								value="Wave";
-							};
-						};
-						class Item1
 						{
 							class data
 							{
@@ -3452,7 +3442,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2153.2681,95.699966,8896.8604};
-						angles[]={-0,5.5025868,0};
+						angles[]={0,5.5025868,0};
 					};
 					side="Empty";
 					flags=5;
@@ -3908,7 +3898,7 @@ class Mission
 					};
 					id=283;
 					type="rhsusf_m1025_w_m2";
-					atlOffset=0.00057554245;
+					atlOffset=0.00057506561;
 				};
 				class Item18
 				{
@@ -3928,7 +3918,7 @@ class Mission
 				};
 			};
 			id=289;
-			atlOffset=1.4172835;
+			atlOffset=1.4172831;
 		};
 	};
 	class Connections
