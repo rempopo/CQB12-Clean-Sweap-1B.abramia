@@ -5,9 +5,9 @@ dzn_dynai_initCondition			=	{ true };
 
 // Group Responses
 dzn_dynai_allowGroupResponse			= true;
-dzn_dynai_responseGroupsPerRequest		= 2;		// Number of groups that can reinforce each request
+dzn_dynai_responseGroupsPerRequest		= 1;		// Number of groups that can reinforce each request
 dzn_dynai_forceGroupResponse			= false; 	// Include all mission units to participate in Group Responses
-dzn_dynai_responseDistance			= 800; 	// meters
+dzn_dynai_responseDistance			= 300; 	// meters
 dzn_dynai_responseCheckTimer			= 20; 	// seconds
 dzn_dynai_makeZoneAlertOnRequest		= true;	// Change behavior of all groups once Reinforcement Request was sent
 
@@ -39,7 +39,7 @@ dzn_dynai_restrictedBuildingClasses		= [
 ];
 
 // Caching Settings
-dzn_dynai_enableCaching				= true;
+dzn_dynai_enableCaching				= false;
 dzn_dynai_cachingTimeout			= 20; // seconds
 dzn_dynai_cacheCheckTimer			= 15; // seconds
 
