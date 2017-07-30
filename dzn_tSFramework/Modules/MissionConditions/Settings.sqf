@@ -47,7 +47,7 @@ tSF_MissionCondition_DefaultCheckTimer 			= 30;
  *			[ [TRG_1, TRG_2, TRG_3], "east", "primaryWeapon _x != ''", "< 3"] call dzn_fnc_ccUnits
  */
 
-waitUntil {!isNil "MissionStatusInfo"};
+waitUntil {!isNil "MissionStatusInfo" && { count MissionStatusInfo == count MissionList } };
 // Код условия может быть строкой или кодом в { }
 MissionCondition1 = [ "WIN", { { !_x } count MissionStatusInfo < 1 }, "All objectives done" ];
 
