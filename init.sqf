@@ -23,3 +23,6 @@ tf_give_personal_radio_to_regular_soldier 	= true;
 // *****
 
 [] execVM "Logic\initLogic.sqf";
+
+//
+playerConnectedFirstTime = true;

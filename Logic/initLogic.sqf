@@ -23,7 +23,22 @@ dzn_fnc_checkAndUpdateMissionStatusClient = {
 					"<t size='2' color='#FFD000' shadow='1'>COMPLETED</t>
 					<br /><br /><t color='#3793F0'>Mission completed in </t>%1"
 					, MissionList select _i select 0
-				];		
+				];
+				
+				if (player distance2d (getMarkerPos "respawn_west") > 70) then {
+					player setVariable [
+						"rtb_action"
+						, player addAction [
+							"<t color='#FFD000' align='left'>Return to Base</t>"
+							, { player setPos (getMarkerPos "respawn_west"); }
+						]
+					];
+					
+					[] spawn {
+						waitUntil { sleep 0.5; (player distance2d (getMarkerPos "respawn_west") < 70) };
+						player removeAction (player getVariable "rtb_action");
+					};
+				};
 			};
 		};
 	};
@@ -98,13 +113,38 @@ if (hasInterface) then {
 			};
 		};		
 	};
+	
+	[] spawn {
+		private _cooldown = "par_autoheal" call BIS_fnc_getParamValue;
+		if (_cooldown == 0) exitWith {};
+	
+		_cooldown = [5,20,30,60] select (_cooldown - 1);
+		while { true } do {
+			sleep _cooldown;
+			
+			[player ,player] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;		
+		};	
+	};
 };
 
 if (isServer || isDedicated) then {
+	GlobalDeathCounter = 0;
+	publicVariable "GlobalDeathCounter";
+	
+	diag_log "[DZN_DBG] Waiting for Dynai to launch";
+	waitUntil { !isNil "dzn_dynai_initialized" && { dzn_dynai_initialized } };
+	
 	MissionStatusInfo = [];	
 	CleanMarkers = [];
 	CleanMarkersId = 0;
+	diag_log "[DZN_DBG] Start zones logics";
 	{
+		private _zone = _x select 4;
+		
+		diag_log format ["[DZN_DBG] Start zone %1 activation", _zone];
+		waitUntil { diag_log "[DZN_DBG] Waiting for activation"; sleep 0.15; _zone call dzn_fnc_dynai_isActive };
+		diag_log format ["[DZN_DBG] Activated zone %1", _zone];
+		
 		private _hostileLogic = _x select 3;
 		private _zoneMarkers = [];
 		// Create Markers for each mission
