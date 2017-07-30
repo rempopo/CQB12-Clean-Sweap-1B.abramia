@@ -134,9 +134,6 @@
                 ,["I_soldier_F", ["indoors"], "kit_euroins_random"]
                 ,["I_soldier_F", ["indoors"], "kit_euroins_random"]
                 ,["I_soldier_F", ["indoors"], "kit_euroins_random"]
-                ,["I_soldier_F", ["indoors"], "kit_euroins_random"]
-                ,["I_soldier_F", ["indoors"], "kit_euroins_random"]
-                ,["I_soldier_F", ["indoors"], "kit_euroins_random"]
             ]
         ]
         ,[
